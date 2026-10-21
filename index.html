@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Paperroom</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <span class="mark" aria-hidden="true"></span>
+      <div>
+        <p class="eyebrow">Job PR-2026-1021</p>
+        <h1>Paperroom</h1>
+      </div>
+    </div>
+    <p class="lede">A cut file for something you can hold. One sentence, real millimetres, then an SVG.</p>
+    <button id="export" type="button">Download SVG</button>
+  </header>
+
+  <main>
+    <form id="ticket" class="ticket">
+      <fieldset>
+        <legend>Format</legend>
+        <div class="formats" role="group" aria-label="Format">
+          <button type="button" data-format="sticker" aria-pressed="true">Sticker</button>
+          <button type="button" data-format="pin" aria-pressed="false">Pin</button>
+          <button type="button" data-format="card" aria-pressed="false">Card</button>
+          <button type="button" data-format="tag" aria-pressed="false">Tag</button>
+          <button type="button" data-format="box" aria-pressed="false">Box</button>
+        </div>
+      </fieldset>
+      <label for="brief">Brief</label>
+      <textarea id="brief" name="brief" rows="5"></textarea>
+      <button id="update" type="submit">Lay out the sheet</button>
+      <p id="reading" class="reading" aria-live="polite"></p>
+    </form>
+
+    <section class="stage" aria-label="Sheet">
+      <div id="sheet-wrap"></div>
+      <p id="spec" class="spec"></p>
+    </section>
+
+    <aside class="adjust">
+      <h2>On the sheet</h2>
+      <label for="title">Title
+        <input id="title" type="text" maxlength="48" autocomplete="off" />
+      </label>
+      <label for="ground">Paper
+        <input id="ground" type="color" />
+      </label>
+      <label for="ink">Ink
+        <input id="ink" type="color" />
+      </label>
+      <label for="accent">Accent
+        <input id="accent" type="color" />
+      </label>
+      <label for="scale">Motif size
+        <input id="scale" type="range" min="0.65" max="1.45" step="0.05" value="1" />
+      </label>
+      <button id="reset" type="button">Clear my edits</button>
+      <p id="legend" class="legend"></p>
+    </aside>
+  </main>
+
+  <footer>
+    <p>Original studio for 21 Oct 2026. Click the sheet to pick a part, then change it on the right.</p>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,224 @@
+:root {
+  --desk: #cfc3b3;
+  --sheet: #f4efe6;
+  --ink: #1c1916;
+  --faint: #6f675d;
+  --line: #ddd4c6;
+  --reg: #c23b2e;
+  --serif: "Iowan Old Style", Palatino, "Palatino Linotype", Georgia, serif;
+  --sans: "Avenir Next", "Segoe UI", sans-serif;
+  --mono: "SFMono-Regular", ui-monospace, Menlo, Consolas, monospace;
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--desk);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+button, input, textarea { font: inherit; color: inherit; }
+
+.top {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 22px 28px 18px;
+  border-bottom: 1px solid rgba(28, 25, 22, 0.18);
+}
+
+.brand { display: flex; gap: 14px; align-items: center; }
+
+.mark {
+  width: 34px;
+  height: 34px;
+  border: 1.5px solid var(--ink);
+  border-radius: 50%;
+  position: relative;
+  flex: none;
+}
+
+.mark::before,
+.mark::after {
+  content: "";
+  position: absolute;
+  background: var(--reg);
+}
+
+.mark::before {
+  width: 1.5px;
+  top: -5px;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.mark::after {
+  height: 1.5px;
+  left: -5px;
+  right: -5px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.eyebrow {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+h1 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 40px;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 0.9;
+}
+
+.lede {
+  max-width: 360px;
+  margin: 0 0 4px;
+  color: var(--faint);
+}
+
+#export, #update, #reset {
+  background: var(--ink);
+  color: var(--sheet);
+  border: 1px solid var(--ink);
+  border-radius: 2px;
+  padding: 10px 14px;
+  cursor: pointer;
+}
+
+#reset {
+  background: transparent;
+  color: var(--ink);
+  width: 100%;
+}
+
+#export:hover, #update:hover, #reset:hover { background: #322c26; color: var(--sheet); }
+
+:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr) 230px;
+  gap: 22px;
+  padding: 22px 28px 10px;
+  align-items: start;
+}
+
+.ticket, .adjust {
+  background: var(--sheet);
+  border: 1px solid rgba(28, 25, 22, 0.16);
+  padding: 16px;
+}
+
+fieldset { border: 0; margin: 0; padding: 0; }
+
+legend, .adjust h2, label {
+  display: block;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+.adjust h2 { margin: 0 0 12px; }
+
+.formats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px;
+  margin: 8px 0 14px;
+}
+
+.formats button {
+  background: transparent;
+  border: 1px solid rgba(28, 25, 22, 0.35);
+  border-radius: 2px;
+  padding: 7px 4px;
+  cursor: pointer;
+}
+
+.formats button[aria-pressed="true"] {
+  background: var(--ink);
+  color: var(--sheet);
+  border-color: var(--ink);
+}
+
+textarea, #title {
+  width: 100%;
+  margin: 6px 0 12px;
+  padding: 8px;
+  border: 1px solid rgba(28, 25, 22, 0.28);
+  border-radius: 2px;
+  background: #fbf8f2;
+  font-family: var(--serif);
+  font-size: 18px;
+  line-height: 1.35;
+}
+
+#update { width: 100%; }
+
+.reading, .spec, .legend, footer p {
+  color: var(--faint);
+  font-family: var(--mono);
+  font-size: 12px;
+}
+
+.reading { margin: 12px 0 0; min-height: 2.6em; }
+
+.stage { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+
+#sheet-wrap { width: 100%; display: flex; justify-content: center; }
+
+#sheet-wrap svg { display: block; max-width: 100%; height: auto; }
+
+.stage { min-width: 0; }
+
+#sheet-wrap [data-part] { cursor: pointer; }
+
+.adjust label { margin-bottom: 12px; }
+
+.adjust input[type="color"] {
+  display: block;
+  width: 100%;
+  height: 36px;
+  margin-top: 6px;
+  padding: 0;
+  border: 1px solid rgba(28, 25, 22, 0.28);
+  background: transparent;
+  cursor: pointer;
+}
+
+.adjust input[type="range"] { width: 100%; margin-top: 8px; }
+
+.legend { margin: 14px 0 0; }
+
+.spec { margin: 0; text-align: center; }
+
+footer { padding: 8px 28px 28px; }
+
+@media (max-width: 980px) {
+  .top { flex-wrap: wrap; align-items: flex-start; }
+  h1 { font-size: 34px; }
+  main { grid-template-columns: 1fr; padding: 16px; }
+  .lede { max-width: none; }
+  footer { padding: 8px 16px 24px; }
+}
